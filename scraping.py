@@ -4,7 +4,7 @@ import json
 import time
 from datetime import datetime
 
-def get_transaction_history(zipcode_F=4800, zipcode_T=4999, propertyType=4, minyear=2014, filename=None):
+def get_transaction_history(zipcode_F=3000, zipcode_T=4999, propertyType=4, minyear=2014, filename=None):
     apiurl = "https://api.boliga.dk/api/v2/sold/search/results"
     results = []
     page = 1
