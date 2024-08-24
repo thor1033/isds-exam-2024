@@ -6,13 +6,13 @@ def clean_and_save_data(input_file, output_file):
     df = pd.read_excel(input_file, skiprows=1)  # Adjust skiprows if needed based on the header position
     
     # Specific adjustments based on the input file
-    if input_file == 'forbrydelser.xlsx':
+    if input_file == 'dst_data/forbrydelser.xlsx':
         df.set_index(df.columns[1], inplace=True)
-    elif input_file in ['fuldtidsledige.xlsx', 'befolkning og indvandre.xlsx']:
+    elif input_file in ['dst_data/fuldtidsledige.xlsx', 'dst_data/befolkning og indvandre.xlsx']:
         df.set_index(df.columns[4], inplace=True)
-    elif input_file == 'uddannelse.xlsx':
+    elif input_file == 'dst_data/uddannelse.xlsx':
         df.set_index(df.columns[3], inplace=True)
-    elif input_file == 'job.xlsx':
+    elif input_file == 'dst_data/job.xlsx':
         df.set_index(df.columns[2], inplace=True)
     else:  # Default case for other files like 'gnms_alder.xlsx', 'ginikoeff.xlsx', 'kommuneskat.xlsx'
         df.set_index(df.columns[1], inplace=True)
