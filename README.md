@@ -29,6 +29,7 @@ This notebook contains the implementation of machine learning models, such as La
 
 ## Setup Instructions
 
+
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/thor1033/isds-exam-2024.git
@@ -40,6 +41,8 @@ This notebook contains the implementation of machine learning models, such as La
    ```bash
    pip install -r requirements.txt
    ```
+
+All the data has already been scraped and preprocessed, but if you want to scrape and preprocess it again here is how:
 
 3. **Run the Data Scraping Script**
    Collect the real estate transaction data by running:
