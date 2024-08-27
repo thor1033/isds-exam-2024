@@ -4,49 +4,43 @@ import json
 import time
 from datetime import datetime
 
-def get_transaction_history(zipcode_F=3000, zipcode_T=4999, propertyType=4, minyear=2014, filename=None):
-    apiurl = "https://api.boliga.dk/api/v2/sold/search/results"
+def get_transaction_history(filename=None):
+    url = "https://api.boliga.dk/api/v2/sold/search/results"
     results = []
-    page = 1
-    totalpages = 1
+    #You can change the amount of pages it can search
+    pageCount = 1
+    totalpageCounts = 1
     parameters = {
         'sort': 'date-d',
-        'zipcodeFrom': zipcode_F,
-        'zipcodeTo': zipcode_T,
+        'zipcodeFrom': 3000,
+        'zipcodeTo': 4999,
         'street': '',
-        'propertyType': propertyType
+        'propertyType': 4,
+        'salesDateMin':2014
     }
     
-    if minyear is not None:
-        parameters['salesDateMin'] = minyear
-
-    while page <= totalpages:
+    while pageCount <= totalpageCounts:
         time.sleep(1)
-        parameters['page'] = page
-        response = requests.get(apiurl, params=parameters)
+        parameters['page'] = pageCount
+        response = requests.get(url, params=parameters)
         if response.status_code != 200:
-            print(f"Page {page}: status_code {response.status_code} - aborting!")
+            #Sometimes boliga's API responds with an error if too many request sequentially
+            print(f"pageCount {pageCount}: status_code {response.status_code} - waiting and trying again!")
             time.sleep(5)
         else:
-            totalpages = response.json()['meta']['totalPages']
-            print(f"Page {page} of {totalpages}")
+            totalpageCounts = response.json()['meta']['totalpageCounts']
+            print(f"pageCount {pageCount} of {totalpageCounts}")
             
             results.extend(response.json()['results'])
-            page += 1
-            #time.sleep(1)
+            pageCount += 1
 
-        if filename is not None:
-            current_dir = os.path.dirname(os.path.abspath(__file__))
-            data_folder = os.path.join(current_dir, 'data')
-
-            # Ensure the data directory exists
-            os.makedirs(data_folder, exist_ok=True)
-            
-            # Construct the full path to the data file
-            data_file_path = os.path.join(data_folder, filename)
-            print(data_file_path)
-            with open(data_file_path, 'w') as file:
-                file.write(json.dumps(results))
+        dir = os.path.dirname(os.path.abspath(__file__))
+        folder = os.path.join(dir, 'data')
+        os.makedirs(folder, exist_ok=True)
+        path = os.path.join(folder, filename)
+        print(path)
+        with open(path, 'w') as file:
+            file.write(json.dumps(results))
     
     return results
 
