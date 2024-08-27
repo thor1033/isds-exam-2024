@@ -42,21 +42,19 @@ This notebook contains the implementation of machine learning models, such as La
    pip install -r requirements.txt
    ```
 
-All the data has already been scraped and preprocessed, but if you want to scrape and preprocess it again here is how:
-
-3. **Run the Data Scraping Script**
-   Collect the real estate transaction data by running:
+3. **(OPTIONAL) Run the Data Scraping Script**
+   Collect the vacation homes transaction data from boliga API by running:
    ```bash
    python scraping.py
    ```
-   This will save the data in JSON format in the `data/` directory.
+   This has already been done. And doing it again will overwrite the data in the `data/` directory, **and take a lot of time**.
 
-4. **Run the Data Preprocessing Script**
+4. **(OPTIONAL) Run the Data Preprocessing Script**
    Process and clean the data, then merge the socioeconomic data with the transaction data:
    ```bash
    python data_preprocessing.py
    ```
-   This will generate `merged_data.csv` in the `data/` directory.
+   This has already been done but doing it again will overwrite `merged_data.csv` in the `data/` directory.
 
 5. **Run the Descriptive Analysis Notebook**
    Explore the descriptive statistics and generate visualizations by running `descriptive_analysis.ipynb` in Jupyter Notebook. The resulting HTML files can be viewed in your browser.
