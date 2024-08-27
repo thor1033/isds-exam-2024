@@ -1,6 +1,6 @@
 # Pricing of vacation homes in Denmark
 
-This project analyzes real estate transaction data alongside socioeconomic data from Danish municipalities, focusing on Sjælland, Lolland, and Falster. The primary goal is to explore the relationships between various socioeconomic factors and real estate prices across different municipalities over a 10-year period (2014-2023).
+This project analyzes vacation homes transaction data alongside socioeconomic data from Danish municipalities, focusing on Sjælland, Lolland, and Falster. The primary goal is to explore the relationships between various socioeconomic factors and vacation home prices across different municipalities over a 10-year period (2014-2023).
 
 ## Project Structure
 
