@@ -73,7 +73,10 @@ This project is licensed under the GPLv3 License. See the `LICENSE` file for det
 ## Collaborators
 
 vzj697 - Rigmor G. Gavrani
+
 flc296 - Romal G. Sadat
+
 bxm615 - Daniel Kofoed
+
 zvr697 - Thor Bøje Simonsen
 
